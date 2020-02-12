@@ -1,0 +1,10 @@
+<p-card *ngIf="conta; else notFound" header="Detalhes da conta">
+  <div>Nome: {{conta.nome}}</div>
+  <div>Saldo: {{conta.saldo}}</div>
+  <p-footer class="p-grid p-justify-end">
+    <button pButton type="button" label="voltar" icon="pi pi-times" class="ui-button-secondary" (click)="voltar()"></button>
+  </p-footer>
+</p-card>
+<ng-template #notFound>
+  <p-card header="Conta não encontrada"></p-card>
+</ng-template>

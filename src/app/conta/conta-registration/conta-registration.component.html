@@ -1,0 +1,16 @@
+<div class="ui-g ui-fluid">
+  <form  [formGroup]="form" (ngSubmit)="salvar()">
+    <div class="ui-g-12 ui-md-4">
+      <div class="ui-inputgroup">
+        <input type="text" pInputText placeholder="Nome" inputId="nome" [formControl]="form.get('nome')" [required]="true" >
+      </div>
+    </div>
+
+    <div class="ui-g-12 ui-md-4">
+      <div class="ui-inputgroup">
+        <input type="text" pInputText placeholder="Saldo incial" inputId="saldoInicial" [formControl]="form.get('saldoInicial')" [required]="true">
+      </div>
+    </div>
+    <button pButton type="submit" label="salvar" [disabled]="form.invalid"></button>
+  </form>
+</div>
