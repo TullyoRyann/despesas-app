@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { ContaModule } from './conta/conta.module';
 import { HomeModule } from './home/home.module';
+import { ToastService } from './shared/service/toast.service';
+import { MessageService } from 'primeng/api';
 
 registerLocaleData(localept, 'pt');
 @NgModule({
@@ -26,7 +28,9 @@ registerLocaleData(localept, 'pt');
     HomeModule
   ],
   providers: [
-    { provide: LOCALE_ID, useValue: 'pt' }
+    { provide: LOCALE_ID, useValue: 'pt' },
+    ToastService,
+    MessageService
   ],
   bootstrap: [AppComponent]
 })

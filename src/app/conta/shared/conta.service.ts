@@ -6,21 +6,25 @@ import { environment } from '@env/environment';
 import { Conta } from './conta';
 
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-
+import { tap, catchError } from 'rxjs/operators';
+import { HandleErrorService } from '@app/shared/service/handle-error.service';
 @Injectable({
   providedIn: 'root'
 })
 export class ContaService extends CrudService {
 
   constructor(
-    protected httpClient: HttpClient
+    protected httpClient: HttpClient,
+    protected handleErrorService: HandleErrorService
   ) {
     super(httpClient, environment.apiUrl, '/contas')
   }
 
   insert(model: Conta): Observable<any> {
-    return this.httpClient.post(this.resourceBaseUrl, model);
+    return this.httpClient.post(this.resourceBaseUrl, model)
+      .pipe(
+        catchError(this.handleErrorService.handleError<any>('insertConta'))
+      );
   }
 
   get(id: number): Observable<any> {

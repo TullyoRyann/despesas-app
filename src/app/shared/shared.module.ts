@@ -9,6 +9,7 @@ import { CardModule } from 'primeng/card';
 import { PanelModule } from 'primeng/panel';
 import { MenuModule } from 'primeng/menu';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
+import { ToastModule } from 'primeng/toast';
 
 const angularModules: Array<Type<any> | any[]> = [
   CommonModule,
@@ -23,7 +24,8 @@ const primeNgModules: Array<Type<any> | any[]> = [
   CardModule,
   PanelModule,
   BreadcrumbModule,
-  MenuModule
+  MenuModule,
+  ToastModule,
 ];
 
 @NgModule({

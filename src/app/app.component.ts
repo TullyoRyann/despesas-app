@@ -13,8 +13,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.items = [
-      { label: 'Início', routerLink: ['/home'] },
-      { label: 'Conta', routerLink: ['/conta'] }
+      { label: 'Início', routerLink: ['/home'] , routerLinkActiveOptions: { exact: true }},
+      { label: 'Conta', routerLink: ['/conta'] , routerLinkActiveOptions: { exact: true }}
     ];
   }
 
