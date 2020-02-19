@@ -11,6 +11,10 @@ import { MenuModule } from 'primeng/menu';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { ToastModule } from 'primeng/toast';
 
+import { NgxCurrencyModule } from "ngx-currency";
+import { CustomCurrencyMaskConfig } from './util/currency-mask-util';
+
+
 const angularModules: Array<Type<any> | any[]> = [
   CommonModule,
   ReactiveFormsModule,
@@ -29,14 +33,16 @@ const primeNgModules: Array<Type<any> | any[]> = [
 ];
 
 @NgModule({
-  declarations: [],
   imports: [
     angularModules,
-    primeNgModules
+    primeNgModules,
+    NgxCurrencyModule.forRoot(CustomCurrencyMaskConfig)
   ],
   exports: [
     angularModules,
-    primeNgModules
-  ]
+    primeNgModules,
+    NgxCurrencyModule
+  ],
+  declarations: []
 })
 export class SharedModule { }
