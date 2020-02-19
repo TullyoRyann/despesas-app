@@ -16,6 +16,10 @@ const routes: Routes = [
   , {
     path: Route.CONTA,
     loadChildren: () => import('./conta/conta.module').then(m => m.ContaModule)
+  },
+  {
+    path: Route.LANCAMENTO,
+    loadChildren: () => import('./lancamento/lancamento.module').then(m => m.LancamentoModule)
   }
 ];
 
