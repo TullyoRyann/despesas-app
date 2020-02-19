@@ -1,39 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { ContaForm } from '../shared/conta.form'
-import { Conta } from '../shared/conta';
 import { Router } from '@angular/router';
 import { ContaService } from '../shared/conta.service';
 import { ToastService } from '@app/shared/service/toast.service';
+import { CrudRegistration } from '@app/shared/component/crud/crud-registration/crud-registration';
 
 @Component({
   selector: 'app-conta-registration',
   templateUrl: './conta-registration.component.html',
   styleUrls: ['./conta-registration.component.css']
 })
-export class ContaRegistrationComponent implements OnInit {
+export class ContaRegistrationComponent extends CrudRegistration {
 
   protected form = new ContaForm();
 
   constructor(
-    private router: Router,
-    private contaService: ContaService,
-    private toastService: ToastService
-  ) { }
-
-  ngOnInit() {
+    protected router: Router,
+    protected contaService: ContaService,
+    protected toastService: ToastService
+  ) { 
+    super(router, contaService, toastService);
   }
 
-  salvar(): void {
-    if(this.form.invalid){
-      return ;
-    }
-    let conta = new Conta(this.form.get('nome').value, this.form.get('saldoInicial').value, this.form.get('saldoInicial').value);
-    this.contaService.insert(conta).subscribe(response => {
-      if(response.data && response.data.id) {
-        this.toastService.success("Sucesso!", "Conta salvo");
-        this.router.navigate([`/conta/${response.data.id}`]);
-      }
-    })
+  protected redirectToNewRegistry(id: number): void {
+    this.router.navigate([`/conta/${id}`]);
   }
 
 }
