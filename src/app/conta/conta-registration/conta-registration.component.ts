@@ -29,9 +29,9 @@ export class ContaRegistrationComponent implements OnInit {
     }
     let conta = new Conta(this.form.get('nome').value, this.form.get('saldoInicial').value, this.form.get('saldoInicial').value);
     this.contaService.insert(conta).subscribe(response => {
-      if(response && response.id){
+      if(response.data && response.data.id){
         this.toastService.success("Sucesso!", "Saldo salvo");
-        this.router.navigate([`/conta/${response.id}`]);
+        this.router.navigate([`/conta/${response.data.id}`]);
       }
     })
   }

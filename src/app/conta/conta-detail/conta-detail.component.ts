@@ -27,8 +27,8 @@ export class ContaDetailComponent implements OnInit {
   getConta(): void {
     let id = +this.activatedRoute.snapshot.paramMap.get('id');
     if(id){
-      this.contaService.get(id).subscribe(conta => {
-        this.conta = conta;
+      this.contaService.get(id).subscribe(response => {
+        this.conta = response.data;
       })
     }
   }

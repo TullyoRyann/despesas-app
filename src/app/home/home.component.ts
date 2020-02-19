@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   getSaldoTotal(): void {
     this.contaService.getSaldoTotal()
       .subscribe(response => {
-        this.saldoAtual = response;
+        this.saldoAtual = response.data;
       })
   }
 
