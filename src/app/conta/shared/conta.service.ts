@@ -7,7 +7,6 @@ import { HandleErrorService } from '@app/shared/service/handle-error.service';
 import { ContaSerializer } from './conta-serializer';
 
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -20,9 +19,12 @@ export class ContaService extends CrudService {
     super(httpClient, environment.apiUrl, '/contas', new ContaSerializer())
   }
 
-
   get(id: number): Observable<any> {
     return this.httpClient.get(`${this.resourceBaseUrl}/${id}`);
+  }
+
+  findAll(): Observable<any> {
+    return this.httpClient.get(`${this.resourceBaseUrl}/findAll`);
   }
 
   getSaldoTotal(): Observable<any> {

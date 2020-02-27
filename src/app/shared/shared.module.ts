@@ -10,6 +10,8 @@ import { PanelModule } from 'primeng/panel';
 import { MenuModule } from 'primeng/menu';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { ToastModule } from 'primeng/toast';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { DropdownModule } from 'primeng/dropdown';
 
 import { NgxCurrencyModule } from "ngx-currency";
 import { CustomCurrencyMaskConfig } from './util/currency-mask-util';
@@ -30,6 +32,8 @@ const primeNgModules: Array<Type<any> | any[]> = [
   BreadcrumbModule,
   MenuModule,
   ToastModule,
+  MultiSelectModule,
+  DropdownModule
 ];
 
 @NgModule({

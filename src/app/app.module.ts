@@ -7,11 +7,13 @@ import localept from '@angular/common/locales/pt';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ToastService } from './shared/service/toast.service';
+import { MessageService } from 'primeng/api';
+
 import { SharedModule } from './shared/shared.module';
 import { ContaModule } from './conta/conta.module';
 import { HomeModule } from './home/home.module';
-import { ToastService } from './shared/service/toast.service';
-import { MessageService } from 'primeng/api';
+import { LancamentoModule } from './lancamento/lancamento.module';
 
 registerLocaleData(localept, 'pt');
 @NgModule({
@@ -25,7 +27,8 @@ registerLocaleData(localept, 'pt');
     HttpClientModule,
     SharedModule,
     ContaModule,
-    HomeModule
+    HomeModule,
+    LancamentoModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },

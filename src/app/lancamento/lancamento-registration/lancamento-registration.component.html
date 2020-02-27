@@ -1,1 +1,34 @@
-<p>lancamento-registration works!</p>
+<form [formGroup]="form" (ngSubmit)="save()">
+  <div class="ui-g ui-fluid">
+    <div class="ui-g-12 ui-md-6">
+      <div class="ui-inputgroup">
+        <input type="text" pInputText placeholder="Descrição *" inputId="descricao" [formControl]="form.get('descricao')"
+          [required]="true">
+      </div>
+    </div>
+    <div class="ui-g-12 ui-md-6">
+      <div class="ui-inputgroup">
+        <input currencyMask [options]="{ allowNegative: false  }" type="text" pInputText placeholder="Valor *" inputId="valor" [formControl]="form.get('valor')"
+          [required]="true">
+      </div>
+    </div>
+  </div>
+  <div class="ui-g ui-fluid">
+    <div class="ui-g-12 ui-md-6">
+      <p-dropdown [options]="tipos" inputId="tipo" [formControl]="form.get('tipo')"
+        placeholder="Selecione tipo do lançamento *" [required]="true"></p-dropdown>
+    </div>
+    <div class="ui-g-12 ui-md-6">
+      <p-dropdown [formControl]="form.get('conta')" name="conta" [options]="contas" optionLabel="nome" inputId="conta"
+        placeholder="Selecione conta *" [required]="true"></p-dropdown>
+    </div>
+  </div>
+  <div class="ui-g ui-fluid p-grid p-justify-end">
+    <div class="ui-g-12 ui-md-2">
+      <button pButton type="submit" label="salvar" class="ui-button-raised ui-button-success" [disabled]="form.invalid"></button>
+    </div>
+    <div class="ui-g-12 ui-md-2">
+      <button pButton type="button" label="limpar" class="ui-button-raised ui-button-warning" (click)="clear()"></button>
+    </div>
+  </div>
+</form>

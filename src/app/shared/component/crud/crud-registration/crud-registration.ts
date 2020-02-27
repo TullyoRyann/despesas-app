@@ -9,7 +9,6 @@ import { Observable } from 'rxjs';
 export abstract class CrudRegistration {
 
   protected abstract form: FormGroup;
-  protected abstract redirectToNewRegistry(id: number): void;
 
   constructor(
     protected router: Router,
@@ -24,12 +23,16 @@ export abstract class CrudRegistration {
     let save = this.addModel();
     save.subscribe(response => {
       this.toastService.success('', "Registro salvo com sucesso.");
-      this.redirectToNewRegistry(response.data.id);
+      this.clear();
     })
   }
 
   protected addModel(): Observable<any> {
     return this.service.insert(this.service.serializer.fromFormToRequestModel(this.form));
+  }
+
+  clear(): void {
+    this.form.reset();
   }
 
 }
