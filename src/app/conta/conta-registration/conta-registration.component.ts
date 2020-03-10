@@ -18,12 +18,16 @@ export class ContaRegistrationComponent extends CrudRegistration {
     protected router: Router,
     protected contaService: ContaService,
     protected toastService: ToastService
-  ) { 
+  ) {
     super(router, contaService, toastService);
   }
 
   protected redirectToNewRegistry(id: number): void {
     this.router.navigate([`/conta/${id}`]);
+  }
+
+  voltar(): void {
+    this.router.navigate(['/contas']);
   }
 
 }

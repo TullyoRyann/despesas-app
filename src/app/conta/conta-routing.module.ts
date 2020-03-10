@@ -4,6 +4,7 @@ import { ContaComponent } from './conta.component';
 import { ContaRegistrationComponent } from './conta-registration/conta-registration.component';
 import { ContaDetailComponent } from './conta-detail/conta-detail.component';
 import { Route } from '../shared/enum/route.enum';
+import { ContaListingComponent } from './conta-listing/conta-listing.component';
 
 const routes: Routes = [
   {
@@ -11,7 +12,11 @@ const routes: Routes = [
     component: ContaComponent,
     children: [
       {
-        path: '',
+        path: Route.CONTAS,
+        component: ContaListingComponent
+      }
+      ,{
+        path: Route.GENERICO_CADASTRAR,
         component: ContaRegistrationComponent
       },
       {
