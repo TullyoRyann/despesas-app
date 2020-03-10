@@ -29,13 +29,7 @@ export class LancamentoRegistrationComponent extends CrudRegistration implements
   }
 
   ngOnInit() {
-    this.getContas();
-  }
 
-  getContas(): void {
-    this.contaService.findAll().subscribe(response => {
-      this.contas = response.data;
-    });
   }
 
 }

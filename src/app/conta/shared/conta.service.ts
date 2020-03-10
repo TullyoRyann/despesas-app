@@ -19,14 +19,6 @@ export class ContaService extends CrudService {
     super(httpClient, environment.apiUrl, '/contas', new ContaSerializer())
   }
 
-  get(id: number): Observable<any> {
-    return this.httpClient.get(`${this.resourceBaseUrl}/${id}`);
-  }
-
-  findAll(): Observable<any> {
-    return this.httpClient.get(`${this.resourceBaseUrl}/findAll`);
-  }
-
   getSaldoTotal(): Observable<any> {
     return this.httpClient.get(this.baseUrl + this.endpointUrl + '/saldoTotal');
   }

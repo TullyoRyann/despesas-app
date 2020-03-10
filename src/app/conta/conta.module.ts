@@ -6,6 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 import { ContaRegistrationComponent } from './conta-registration/conta-registration.component';
 import { ContaDetailComponent } from './conta-detail/conta-detail.component';
 import { ContaComponent } from './conta.component';
+import { ContaListingComponent } from './conta-listing/conta-listing.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { ContaComponent } from './conta.component';
   declarations: [
     ContaComponent,
     ContaRegistrationComponent,
-    ContaDetailComponent
+    ContaDetailComponent,
+    ContaListingComponent
   ],
 })
 export class ContaModule { }

@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Serializer } from '../interface/serializer';
 
-import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { QueryParamsFactory } from '../factory/query-params-factory';
 @Injectable({
   providedIn: 'root'
 })
 export class CrudService {
+
+  protected queryParamsFactory = new QueryParamsFactory();
 
   constructor(
     protected httpClient: HttpClient,
@@ -18,6 +20,15 @@ export class CrudService {
 
   insert(model: any): Observable<any> {
     return this.httpClient.post(this.resourceBaseUrl, model);
+  }
+
+  list(filter: any): Observable<any> {
+    let params = this.queryParamsFactory.create(filter);
+    return this.httpClient.get(`${this.resourceBaseUrl}/findAll`, { params });
+  }
+
+  get(id: number): Observable<any> {
+    return this.httpClient.get(`${this.resourceBaseUrl}/${id}`);
   }
 
   get baseUrl(): string {
